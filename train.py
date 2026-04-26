@@ -333,7 +333,9 @@ def main(args):
         model_without_ddp = model.module
 
     if args.resume:
-        checkpoint = torch.load(args.resume, map_location='cpu')
+        #checkpoint = torch.load(args.resume, map_location='cpu')
+        
+        checkpoint = torch.load(args.resume, map_location='cpu', weights_only=False)
         model_without_ddp.load_state_dict(checkpoint['model'])
         optimizer.load_state_dict(checkpoint['optimizer'])
         lr_scheduler.load_state_dict(checkpoint['lr_scheduler'])
@@ -444,3 +446,4 @@ if __name__ == "__main__":
 # The changes made in the model.py file have been recorded there at the end of the file
 # The new command for training the model with Adam's optimizer and a learning rate of 0.001 will be added to the notebook on Kaggle.
 # Printing the gradients was added to the training loop
+# added weights_only=False
