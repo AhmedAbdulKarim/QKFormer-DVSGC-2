@@ -153,9 +153,9 @@ def train_one_epoch(model, criterion, optimizer, data_loader, device, epoch, pri
             # --- INJECTED DIAGNOSTICS HERE ---
             scaler.unscale_(optimizer) # Unscale to get raw gradient values
             
-            if model.out.weight.grad is not None:
-                grad_max = model.out.weight.grad.abs().max().item()
-                grad_mean = model.out.weight.grad.abs().mean().item()
+            if model.head.weight.grad is not None:
+                grad_max = model.head.weight.grad.abs().max().item()
+                grad_mean = model.head.weight.grad.abs().mean().item()
                 print(f"  --> [Diag] Grad Max: {grad_max:.6f} | Mean: {grad_mean:.6f}")
             else:
                 print("  --> [Diag] GRADIENT IS NONE!")
@@ -167,9 +167,9 @@ def train_one_epoch(model, criterion, optimizer, data_loader, device, epoch, pri
             loss.backward()
 
             # --- INJECT DIAGNOSTICS HERE ---
-            if model.out.weight.grad is not None:
-                grad_max = model.out.weight.grad.abs().max().item()
-                grad_mean = model.out.weight.grad.abs().mean().item()
+            if model.head.weight.grad is not None:
+                grad_max = model.head.weight.grad.abs().max().item()
+                grad_mean = model.head.weight.grad.abs().mean().item()
                 print(f"  --> [Diag] Grad Max: {grad_max:.6f} | Mean: {grad_mean:.6f}")
             # -------------------------------
 
