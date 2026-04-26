@@ -443,3 +443,4 @@ if __name__ == "__main__":
 # The original code is in trainOriginal.py, and the modified code is in train.py.
 # The changes made in the model.py file have been recorded there at the end of the file
 # The new command for training the model with Adam's optimizer and a learning rate of 0.001 will be added to the notebook on Kaggle.
+# Printing the gradients was added to the training loop
