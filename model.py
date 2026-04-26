@@ -294,7 +294,7 @@ class vit_snn(nn.Module):
                  img_size_h=128, img_size_w=128, patch_size=16, in_channels=2, num_classes=11,
                  embed_dims=[64, 128, 256], num_heads=[1, 2, 4], mlp_ratios=[4, 4, 4], qkv_bias=False, qk_scale=None,
                  drop_rate=0., attn_drop_rate=0., drop_path_rate=0., norm_layer=nn.LayerNorm,
-                 depths=[6, 8, 6], sr_ratios=[8, 4, 2], T=4, pretrained_cfg=None, in_chans = 3, no_weight_decay = None
+                 depths=[6, 8, 6], sr_ratios=[8, 4, 2], T=4, pretrained_cfg=None, in_chans = 3, no_weight_decay = None, **kwargs
                  ):
         super().__init__()
         self.num_classes = num_classes
@@ -448,4 +448,5 @@ if __name__ == '__main__':
 # 5. Added comments to explain the changes made in the code for better clarity and understanding.
 # 6. Th train.py file has been updated
 # 7. The new command for training the model with Adam's optimizer and a learning rate of 0.001 will be added to the notebook on Kaggle.
+# 8. **kwargs was added to the model constructor vit_snn
 
